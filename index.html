@@ -18,28 +18,28 @@
         </div>
         <main>
             <h1>Mein Fotoalbum</h1>
-            <dialog open class="dialogWindow ">
-                <div>
+            <dialog id="dialog" class="displayN">
+                <div class="control_head">
                     <h3>Überschrift</h3>
-                    <button>
-                        <img src="./img/graphics/x-icon.png" alt="close button">
+                    <button onclick="close()">
+                        <img class="icon" src="./img/graphics/x-icon.svg" alt="close button">
                     </button>
                 </div>
                 <img src="./img/images/sand1.jpg" alt="">
-                <div>
-                    <button>
-                        <img src="./img/graphics/arrow left icon.png" alt="go back">
+                <div class="control_menu">
+                    <button onclick="">
+                        <img class="icon" src="./img/graphics/arrow-left.svg" alt="go back">
                     </button>
                     <p>Display Object Count</p>
-                    <button>
-                        <img src="./img/graphics/arrow right icon.png" alt="go forward">
+                    <button onclick="">
+                        <img class="icon" src="./img/graphics/arrow-right.svg" alt="go forward">
                     </button>
                 </div>
             </dialog>
             <div class="pictureCont">
                 <div class="column">
-                    <img onmouseover="change('pic1')" onmouseout="changeback()" onclick="dialog()" id="pic1" class="picture"
-                        src="./img/images/sand1.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic1')" onmouseout="changeback()" onclick="dialog()" id="pic1"
+                        class="picture" src="./img/images/sand1.jpg" alt="Sand in variations">
                     <img onmouseover="change('pic2')" onmouseout="changeback()" id="pic2" class="picture"
                         src="./img/images/sand2.jpg" alt="Sand in variations">
                     <img onmouseover="change('pic3')" onmouseout="changeback()" id="pic3" class="picture"
@@ -48,24 +48,24 @@
                         src="./img/images/sand4.jpg" alt="Sand in variations">
                 </div>
                 <div class="column">
-                    <img onmouseover="change('pic5')" onmouseout="changeback()" id="pic5" class="picture"
-                        src="./img/images/sand8.jpg" alt="Sand in variations">
-                    <img onmouseover="change('pic6')" onmouseout="changeback()" id="pic6" class="picture"
-                        src="./img/images/sand6.jpg" alt="Sand in variations">
-                    <img onmouseover="change('pic7')" onmouseout="changeback()" id="pic7" class="picture"
-                        src="./img/images/sand7.jpg" alt="Sand in variations">
-                    <img onmouseover="change('pic8')" onmouseout="changeback()" id="pic8" class="picture"
-                        src="./img/images/sand5.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic5')" onmouseout="changeback()" onclick="dialog()" id="pic5"
+                        class="picture" src="./img/images/sand8.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic6')" onmouseout="changeback()" onclick="dialog()" id="pic6"
+                        class="picture" src="./img/images/sand6.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic7')" onmouseout="changeback()" onclick="dialog()" id="pic7"
+                        class="picture" src="./img/images/sand7.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic8')" onmouseout="changeback()" onclick="dialog()" id="pic8"
+                        class="picture" src="./img/images/sand5.jpg" alt="Sand in variations">
                 </div>
                 <div class="column">
-                    <img onmouseover="change('pic9')" onmouseout="changeback()" id="pic9" class="picture"
-                        src="./img/images/sand9.jpg" alt="Sand in variations">
-                    <img onmouseover="change('pic10')" onmouseout="changeback()" id="pic10" class="picture"
-                        src="./img/images/sand10.jpg" alt="Sand in variations">
-                    <img onmouseover="change('pic11')" onmouseout="changeback()" id="pic11" class="picture"
-                        src="./img/images/sand11.jpg" alt="Sand in variations">
-                    <img onmouseover="change('pic12')" onmouseout="changeback()" id="pic12" class="picture"
-                        src="./img/images/sand12.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic9')" onmouseout="changeback()" onclick="dialog()" id="pic9"
+                        class="picture" src="./img/images/sand9.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic10')" onmouseout="changeback()" onclick="dialog()" id="pic10"
+                        class="picture" src="./img/images/sand10.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic11')" onmouseout="changeback()" onclick="dialog()" id="pic11"
+                        class="picture" src="./img/images/sand11.jpg" alt="Sand in variations">
+                    <img onmouseover="change('pic12')" onmouseout="changeback()" onclick="dialog()" id="pic12"
+                        class="picture" src="./img/images/sand12.jpg" alt="Sand in variations">
                 </div>
             </div>
         </main>

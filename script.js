@@ -10,9 +10,6 @@ function change(id) {
     document.getElementById('c').style.backgroundColor = "rgba(255,255,255,0.6)";
     document.getElementById('c').style.backgroundBlendMode = "lighten";
 
-
-
-
 }
 
 function changeback() {
@@ -24,8 +21,17 @@ function changeback() {
 
 }
 
+
+
+
 function dialog() {
-    document.getElementById("dialogWindow").open = true;
+    document.getElementById("dialog").classList.add('dialogWindow'); 
+}
+
+function close() {
+    
+    document.getElementById("dialog").classList.remove('dialogWindow');
+    
 }
 
 

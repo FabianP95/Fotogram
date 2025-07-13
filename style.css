@@ -67,6 +67,24 @@ h1 {
     padding: 30px;
 }
 
+.icon {
+    height: 44px;
+    width: 44px;
+}
+
+.control_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.control_head {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
 .pictureCont {
     display: flex;
     flex-wrap: wrap;
