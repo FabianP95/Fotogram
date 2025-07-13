@@ -22,16 +22,14 @@ function changeback() {
 }
 
 
-
-
 function dialog() {
-    document.getElementById("dialog").classList.add('dialogWindow'); 
+    document.getElementById('dialog').classList.add('dialogWindow');
+    let element = document.getElementById("dialog");
+    element.open = true;
 }
 
-function close() {
-    
-    document.getElementById("dialog").classList.remove('dialogWindow');
-    
+function dialog_close() {
+    let element = document.getElementById("dialog");
+    element.open = false;
 }
-
 
