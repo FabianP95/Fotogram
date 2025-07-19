@@ -7,7 +7,7 @@ function change(id) {
     document.getElementById('c').classList.add('backgroundImg');
     let img = document.getElementById(id).src;
     document.getElementById('c').style.backgroundImage = "url(" + img + ")";
-    document.getElementById('c').style.backgroundColor = "rgba(255,255,255,0.6)";
+    document.getElementById('c').style.backgroundColor = "rgba(255,255,255,0.2)";
     document.getElementById('c').style.backgroundBlendMode = "lighten";
 
 }
@@ -23,7 +23,6 @@ function changeback() {
 
 
 function dialog() {
-    document.getElementById('dialog').classList.add('dialogWindow');
     let element = document.getElementById("dialog");
     element.open = true;
 }
@@ -33,36 +32,57 @@ function dialog_close() {
     element.open = false;
 }
 
-const imgArray = [
-    img = document.getElementById('pic1').src,
-    img2 = document.getElementById('pic2').src,
-    img3 = document.getElementById('pic3').src,
-    img4 = document.getElementById('pic4').src,
-    img5 = document.getElementById('pic5').src,
-    img6 = document.getElementById('pic6').src,
-    img7 = document.getElementById('pic7').src,
-    img8 = document.getElementById('pic8').src,
-    img9 = document.getElementById('pic9').src,
-    img10 = document.getElementById('pic10').src,
-    img11 = document.getElementById('pic11').src,
-    img12 = document.getElementById('pic12').src,
-]
-console.log(imgArray);
+window.onclick = function (event) {
+    let element = document.getElementById("dialog");
+    if (event.target == element) {
+        element.open = false;;
+    }
+}
 
 
 
+let imageList = document.getElementsByClassName('picture')
+for (let index = 0; index < imageList.length; index++) {
+    imageList[index].addEventListener('click', function () {
+        dialogHead(this)
+    }); 
+}
 
 
 
-
-
-function dialogHead(id) {
+function dialogHead(obj) {
+    let id = obj.id
     let head = document.getElementById(id).alt;
     document.getElementById('dialogHeader').innerHTML = head;
     let img = document.getElementById(id).src;
     document.getElementById('dialogImg').src = img;
+    let title = document.getElementById(id).title;
+    document.getElementById('dialogPosition').innerHTML = title;
 
-    document.getElementById('dialogPosition').innerHTML = head;
+}
 
+var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+    showSlides(slideIndex += n);
+
+}
+
+function currentSlide(n) {
+    showSlides(slideIndex = n);
+
+}
+
+function showSlides(n) {
+    var i;
+    const slides = document.getElementsByClassName("picture");
+    if (n > slides.length) { slideIndex = 1 }
+    if (n < 1) { slideIndex = slides.length }
+    for (i = 0; i < slides.length; i++) {
+
+
+
+    }
 }
 
