@@ -1,41 +1,47 @@
-// Images loading in
-let images23 = [
-    "./img/images/sand1.jpg",
-    "./img/images/sand2.jpg",
-    "./img/images/sand3.jpg",
-    "./img/images/sand4.jpg",
-    "./img/images/sand8.jpg",
-    "./img/images/sand6.jpg",
-    "./img/images/sand7.jpg",
-    "./img/images/sand5.jpg",
-    "./img/images/sand9.jpg",
-    "./img/images/sand10.jpg",
-    "./img/images/sand11.jpg",
-    "./img/images/sand12.jpg",
-]
+//My Arrays
 
-function renderImages() {
-    document.getElementById('pic1').src = images23[0];
-    document.getElementById('pic2').src = images23[1];
-    document.getElementById('pic3').src = images23[2];
-    document.getElementById('pic4').src = images23[3];
-    document.getElementById('pic5').src = images23[4];
-    document.getElementById('pic6').src = images23[5];
-    document.getElementById('pic7').src = images23[6];
-    document.getElementById('pic8').src = images23[7];
-    document.getElementById('pic9').src = images23[8];
-    document.getElementById('pic10').src = images23[9];
-    document.getElementById('pic11').src = images23[10];
-    document.getElementById('pic12').src = images23[11];
+let imagesSrc = [
+    "./img/images/sand1.jpg", "./img/images/sand2.jpg", "./img/images/sand3.jpg", "./img/images/sand4.jpg",
+    "./img/images/sand8.jpg", "./img/images/sand6.jpg", "./img/images/sand7.jpg", "./img/images/sand5.jpg",
+    "./img/images/sand9.jpg", "./img/images/sand10.jpg", "./img/images/sand11.jpg", "./img/images/sand12.jpg"];
+
+let idArray = ['pic1', 'pic2', 'pic3', 'pic4', 'pic5', 'pic6', 'pic7', 'pic8', 'pic9', 'pic10', 'pic11', 'pic12'];
+
+let altArray = ["Sand in variations 1", "Sand in variations 2", "Sand in variations 3", "Sand in variations 4", "Sand in variations 5",
+    "Sand in variations 6", "Sand in variations 7", "Sand in variations 8", "Sand in variations 9", "Sand in variations 10", "Sand in variations 11",
+    "Sand in variations 12"];
+
+let titleArray = ["1/12", "2/12", "3/12", "4/12", "5/12", "6/12", "7/12", "8/12", "9/12", "10/12", "11/12", "12/12"];
+
+let idNumArray = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+
+
+// HTML Image Template
+
+function render() {
+    let contentRef = document.getElementById('firstRow');
+    let contentRef1 = document.getElementById('secondRow');
+    let contentRef2 = document.getElementById('thirdRow');
+    for (let index = 0; index < imagesSrc.length - 8; index++) {
+        contentRef.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="dialog() ; dialogHead(${idNumArray[index]})"
+          id="${idArray[index]}" class="picture" src="${imagesSrc[index]}" alt= "${altArray[index]}" title="${titleArray[index]}"> `
+    }
+    for (let index = 4; index < imagesSrc.length - 4; index++) {
+        contentRef1.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="dialog() ; dialogHead(${idNumArray[index]})"
+          id="${idArray[index]}" class="picture" src="${imagesSrc[index]}" alt= "${altArray[index]}" title="${titleArray[index]}"> `
+    }
+    for (let index = 8; index < imagesSrc.length; index++) {
+        contentRef2.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="dialog() ; dialogHead(${idNumArray[index]})"
+         id="${idArray[index]}" class="picture" src="${imagesSrc[index]}" alt= "${altArray[index]}" title="${titleArray[index]}"> `
+    }
 }
 
 //Background change Function
 
-function change(id) {
-    document.getElementById('c').classList.remove('height')
+function change(n) {
+    document.getElementById('c').classList.remove('height');
     document.getElementById('c').classList.add('backgroundImg');
-    let img = document.getElementById(id).src;
-    document.getElementById('c').style.backgroundImage = "url(" + img + ")";
+    document.getElementById('c').style.backgroundImage = "url(" + imagesSrc[n] + ")";
     document.getElementById('c').style.backgroundColor = "rgba(255,255,255,0.2)";
     document.getElementById('c').style.backgroundBlendMode = "lighten";
 }
@@ -48,7 +54,7 @@ function changeback() {
     document.getElementById('c').style.backgroundBlendMode = "initial";
 }
 
-// Dialog functions open/close
+// Dialog function open/close
 function dialog() {
     let element = document.getElementById("dialog");
     element.open = true;
@@ -68,67 +74,26 @@ window.onclick = function (event) {
 
 // Image Dialog functions
 
-//let imageList = document.getElementsByClassName('picture');
-//for (let index = 0; index < imageList.length; index++) {
-//    imageList[index].addEventListener('click', function () {
-//     dialogHead(this);
-//   });
-//}
-
-let idArray = [
-    'pic1',
-    'pic2',
-    'pic3',
-    'pic4',
-    'pic5',
-    'pic6',
-    'pic7',
-    'pic8',
-    'pic9',
-    'pic10',
-    'pic11',
-    'pic12',
-];
-
 function dialogHead(n) {
-    let id = idArray[n]
-    let head = document.getElementById(id).alt;
+    let head = document.getElementById(idArray[n]).alt;
     document.getElementById('dialogHeader').innerHTML = head;
-    let img = document.getElementById(id).src;
+    let img = document.getElementById(idArray[n]).src;
     document.getElementById('dialogImg').src = img;
-    let title = document.getElementById(id).title;
+    let title = document.getElementById(idArray[n]).title;
     document.getElementById('dialogPosition').innerHTML = title;
-    return id;
 }
-
 //Dialog Buttons
-let altArray = [
-    document.getElementById('pic1').alt,
-    document.getElementById('pic2').alt,
-    document.getElementById('pic3').alt,
-    document.getElementById('pic4').alt,
-    document.getElementById('pic5').alt,
-    document.getElementById('pic6').alt,
-    document.getElementById('pic7').alt,
-    document.getElementById('pic8').alt,
-    document.getElementById('pic9').alt,
-    document.getElementById('pic10').alt,
-    document.getElementById('pic11').alt,
-    document.getElementById('pic12').alt,
-];
 
-function cycleThrough(n) {
-    let text = document.getElementById('dialogHeader').innerHTML;
-    let search = altArray.indexOf(text);
-    let newID = idArray[search + n];
-    let id = newID;
-    let result = idArray.indexOf(id)
-    let head = document.getElementById(id).alt;
-    document.getElementById('dialogHeader').innerHTML = head;
-    let img = document.getElementById(id).src;
-    document.getElementById('dialogImg').src = img;
-    let title = document.getElementById(id).title;
-    document.getElementById('dialogPosition').innerHTML = title;
+function cycleThrough(dialogHead) {
+     dialogHead(n) {
+        let head = document.getElementById(idArray[n]).alt;
+        document.getElementById('dialogHeader').innerHTML = head;
+        let img = document.getElementById(idArray[n]).src;
+        document.getElementById('dialogImg').src = img;
+        let title = document.getElementById(idArray[n]).title;
+        document.getElementById('dialogPosition').innerHTML = title;
+    }
+
     if (result <= 0) {
         document.getElementById('back').classList.add('d_none');
     } else {

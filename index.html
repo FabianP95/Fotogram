@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="renderImages()">
+<body onload="render() ; dialog_close()" >
     <div id="c" class="height">
         <div class="color">
             <header>
@@ -39,37 +39,10 @@
                     </div>
                 </div>
             </dialog>
-            <div class="pictureCont">
-                <div class="column">
-                    <img onmouseover="change('pic1')" onmouseout="changeback()" onclick="dialog() ; dialogHead(0)"
-                        id="pic1" class="picture" src="" alt="Sand in variations 1" title="1/12">
-                    <img onmouseover="change('pic2')" onmouseout="changeback()" onclick="dialog() ; dialogHead(1)"
-                        id="pic2" class="picture" src="" alt="Sand in variations 2" title="2/12">
-                    <img onmouseover="change('pic3')" onmouseout="changeback()" onclick="dialog() ; dialogHead(2)"
-                        id="pic3" class="picture" src="" alt="Sand in variations 3" title="3/12">
-                    <img onmouseover="change('pic4')" onmouseout="changeback()" onclick="dialog() ; dialogHead(3)"
-                        id="pic4" class="picture" src="" alt="Sand in variations 4" title="4/12">
-                </div>
-                <div class="column">
-                    <img onmouseover="change('pic5')" onmouseout="changeback()" onclick="dialog() ; dialogHead(4)"
-                        id="pic5" class="picture" src="" alt="Sand in variations 5" title="5/12">
-                    <img onmouseover="change('pic6')" onmouseout="changeback()" onclick="dialog() ; dialogHead(5)"
-                        id="pic6" class="picture" src="" alt="Sand in variations 6" title="6/12">
-                    <img onmouseover="change('pic7')" onmouseout="changeback()" onclick="dialog() ; dialogHead(6)"
-                        id="pic7" class="picture" src="" alt="Sand in variations 7" title="7/12">
-                    <img onmouseover="change('pic8')" onmouseout="changeback()" onclick="dialog() ; dialogHead(7)"
-                        id="pic8" class="picture" src="" alt="Sand in variations 8" title="8/12">
-                </div>
-                <div class="column">
-                    <img onmouseover="change('pic9')" onmouseout="changeback()" onclick="dialog() ; dialogHead(8)"
-                        id="pic9" class="picture" src="" alt="Sand in variations 9" title="9/12">
-                    <img onmouseover="change('pic10')" onmouseout="changeback()" onclick="dialog() ; dialogHead(9)"
-                        id="pic10" class="picture" src="" alt="Sand in variations 10" title="10/12">
-                    <img onmouseover="change('pic11')" onmouseout="changeback()" onclick="dialog() ; dialogHead(10)"
-                        id="pic11" class="picture" src="" alt="Sand in variations 11" title="11/12">
-                    <img onmouseover="change('pic12')" onmouseout="changeback()" onclick="dialog() ; dialogHead(11)"
-                        id="pic12" class="picture" src="" alt="Sand in variations 12" title="12/12">
-                </div>
+            <div  class="pictureCont">
+                <div  id="firstRow" class="column"></div>
+                <div id="secondRow" class="column"></div>
+                <div id="thirdRow" class="column"></div>
             </div>
         </main>
     </div>
