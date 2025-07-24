@@ -23,15 +23,15 @@ function render() {
     let contentRef1 = document.getElementById('secondRow');
     let contentRef2 = document.getElementById('thirdRow');
     for (let index = 0; index < imagesSrc.length - 8; index++) {
-        contentRef.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="dialog() ; dialogHead(${idNumArray[index]})"
+        contentRef.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="display_buttons(${idNumArray[index]}) ; dialogHead(${idNumArray[index]})"
           id="${idArray[index]}" class="picture" src="${imagesSrc[index]}" alt= "${altArray[index]}" title="${titleArray[index]}"> `
     }
     for (let index = 4; index < imagesSrc.length - 4; index++) {
-        contentRef1.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="dialog() ; dialogHead(${idNumArray[index]})"
+        contentRef1.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="display_buttons(${idNumArray[index]}) ; dialogHead(${idNumArray[index]})"
           id="${idArray[index]}" class="picture" src="${imagesSrc[index]}" alt= "${altArray[index]}" title="${titleArray[index]}"> `
     }
     for (let index = 8; index < imagesSrc.length; index++) {
-        contentRef2.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="dialog() ; dialogHead(${idNumArray[index]})"
+        contentRef2.innerHTML += `<img onmouseover="change(${idNumArray[index]})" onmouseout="changeback()" onclick="display_buttons(${idNumArray[index]}) ; dialogHead(${idNumArray[index]})"
          id="${idArray[index]}" class="picture" src="${imagesSrc[index]}" alt= "${altArray[index]}" title="${titleArray[index]}"> `
     }
 }
@@ -54,11 +54,7 @@ function changeback() {
     document.getElementById('c').style.backgroundBlendMode = "initial";
 }
 
-// Dialog function open/close
-function dialog() {
-    let element = document.getElementById("dialog");
-    element.open = true;
-}
+// Dialog function close
 
 function dialog_close() {
     let element = document.getElementById("dialog");
@@ -75,34 +71,45 @@ window.onclick = function (event) {
 // Image Dialog functions
 
 function dialogHead(n) {
-    let head = document.getElementById(idArray[n]).alt;
-    document.getElementById('dialogHeader').innerHTML = head;
-    let img = document.getElementById(idArray[n]).src;
-    document.getElementById('dialogImg').src = img;
-    let title = document.getElementById(idArray[n]).title;
-    document.getElementById('dialogPosition').innerHTML = title;
+    let element = document.getElementById("dialog");
+    element.open = true;
+    document.getElementById('dialogHeader').innerHTML = document.getElementById(idArray[n]).alt;
+    document.getElementById('dialogImg').src = document.getElementById(idArray[n]).src;
+    document.getElementById('dialogPosition').innerHTML = document.getElementById(idArray[n]).title;
 }
+
 //Dialog Buttons
 
-function cycleThrough(dialogHead) {
-     dialogHead(n) {
-        let head = document.getElementById(idArray[n]).alt;
-        document.getElementById('dialogHeader').innerHTML = head;
-        let img = document.getElementById(idArray[n]).src;
-        document.getElementById('dialogImg').src = img;
-        let title = document.getElementById(idArray[n]).title;
-        document.getElementById('dialogPosition').innerHTML = title;
+function cycleThrough(n) {
+    document.getElementById('forward').classList.remove('d_none');
+    document.getElementById('back').classList.remove('d_none');
+    let search = altArray.indexOf(document.getElementById('dialogHeader').innerHTML);
+    let id = idArray[search + n];
+    document.getElementById('dialogHeader').innerHTML = document.getElementById(id).alt;
+    document.getElementById('dialogImg').src = document.getElementById(id).src;
+    document.getElementById('dialogPosition').innerHTML = document.getElementById(id).title;
+    if (id === 'pic1') {
+        document.getElementById('back').classList.add('d_none');
     }
+    if (id === 'pic12') {
+        document.getElementById('forward').classList.add('d_none');
+    }
+}
 
-    if (result <= 0) {
+function display_buttons(n) {
+    console.log(n);
+    if (n === 0) {
         document.getElementById('back').classList.add('d_none');
     } else {
         document.getElementById('back').classList.remove('d_none');
     }
-    if (result >= 11) {
+    if (n === 11) {
         document.getElementById('forward').classList.add('d_none');
     } else {
         document.getElementById('forward').classList.remove('d_none');
     }
 }
+
+
+
 
